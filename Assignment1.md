@@ -35,11 +35,15 @@ Your submission is complete when you complete the *Assigment1.md* file with your
 
 ```
 There are two branches : master and math
+$ git branch
 * master
   math
 
-    - In master branch :
-                        commit 18931d12a8be7cac049b73c6bc8136e9482f3371 (HEAD -> master)
+$ git checkout master
+Already on 'master'
+
+$ git log --decorate
+                commit 18931d12a8be7cac049b73c6bc8136e9482f3371 (HEAD -> master)
                 Author: Igor Steinmacher <igorsteinmacher@gmail.com>
                 Date:   Wed Aug 14 23:15:28 2019 -0700
 
@@ -56,9 +60,13 @@ There are two branches : master and math
                 Date:   Wed Aug 14 23:08:47 2019 -0700
 
                      Creating all files (all empty)
-             
-      - In math branch:
-                          commit e3c629dd524712aedea96d7dbaad1c50d12b5b5e (HEAD -> math)
+
+
+$ git checkout math
+Switched to branch 'math'
+
+$ git log --decorate
+                    commit e3c629dd524712aedea96d7dbaad1c50d12b5b5e (HEAD -> math)
                     Author: Igor Steinmacher <igorsteinmacher@gmail.com>
                     Date:   Wed Aug 14 23:13:48 2019 -0700
 
@@ -106,8 +114,14 @@ There are two branches : master and math
 
 
 Understanding :
-Click on 'q' to quit the view
-
+This command shows the activity performed in the repository from bottom to top (most recent activity is on top). for each commit 
+it shows the commit hash value, author, data of commit and comments given by developer during commit. HEAD -> points the current 
+branch we are working on, in this case its master branch. on the left on the commits, there is a green and red line between stars 
+- representing till when the branches are in sync. The dash that come out on right indicates when the branch is created and if 
+there is dash back into the main straight line then it indicates the branch is merged. red dashes indicate that there is 
+different content in both the files, where as geen line represents that the branch is merged back into the master and all the 
+branches are in sync. The same is in our case there is branch created after two commits and third commit is performed in branch 
+math whereas fourth commit is performed in master branch.
 ```
 
 3. Use `git diff BRANCH_NAME` to view the differences from a branch and the current branch. Summarize the difference from master to the other branch.
@@ -140,8 +154,12 @@ index e69de29..c63f94c 100644
 
 
 Summarization : 
+In the child branch A.py file, inside method there is some if else logic added in it, where as the master branch A.py file inside 
+the method there is only one print statement - printing - 'my knowledge is limited'. whereas in B.py file in the child branch 
+there is no comment added but in the master branch's B.py file there is a comment added. I am checking the difference from master 
+branch so '--- a/A.py' mean that there is some content less in master branch when compared to child branch, '+++ b/B.py' means 
+that there is content in master branch's B.py which is not there in child branch's B.py. 
 
-Click on 'q' to quit the view
 ```
 
 4. Write a command sequence to merge the non-master branch into `master`.
@@ -155,12 +173,10 @@ git merge math
 5. Write a command (or sequence) to (i) create a new branch called `math` (from the `master`) and (ii) change to this branch.
 
 ```
-i. $ git branch math1
-ii. $ git checkout math1
-Switched to branch 'math1'
+$ git branch math
 
-
-
+$ git checkout math
+Switched to branch 'math'
 ```
    
 6. Edit B.py adding the following source code below the content you have there.
@@ -185,14 +201,13 @@ print 'hello world!'
 
 9. Write a command sequence to merge the `math` branch into `master` and describe what happened.
 ```
-$ git merge math1
+$ git merge math
 Auto-merging B.py
 CONFLICT (content): Merge conflict in B.py
 Automatic merge failed; fix conflicts and then commit the result.
 
-Merge conflict happened, because the same line in both the files have different content
 
-
+Merge conflict occured, because the same line in both the files have different content.
 ```
    
 10. Write a set of commands to abort the merge.
@@ -203,24 +218,56 @@ $ git merge --abort
    
 11. Now repeat item 9, but proceed with the manual merge (editing B.py). All implemented methods are needed. Explain your procedure.
 ```
+Since its aborted earlier I merged again so that conflicts will show up.
+After the conflicts showed up, I decided which file's content to keep in file. I decided to keep both the files content. 
+So I removed (<<<<<<< HEAD, =======, >>>>>>> math) and followed the following steps.
 
-After aborting the merge, now I am in master branch, I reverted the changes in master branch
- 
- 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@  NEED to re do it @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2
+Then I added all the files once again.
+
+$ git add .
+
+Committed my changes into master branch and the conflict is resolved.
+$ git commit -a -m "resolve conflict"
+[master f8ef1b6] resolve conflict
+
+But these changes are only in master but not in my child branch so I switch back to child branch and rebase it from 
+master to keep both in sync. I followed the bellow commands to do it.
+
+$ git checkout math
+Switched to branch 'math'
+
+$ git rebase master
+Successfully rebased and updated refs/heads/math.
 ```
 
 12. Write a command (or set of commands) to proceed with the merge and make `master` branch up-to-date.
 ```
+Since I am in child branch 'math' I followed these commands:
 
+$ git checkout master
+Switched to branch 'master'
 
+$ git merge math
+Already up to date.
 ```
 
 13. Complete Part 2. Then, come back here and answer the following:
 Report your experience of submitting the Part 2. Please, include the steps you followed, the commands you used, and the hurdles you faced (within the file you created for the **Part 1**).
 ```
+1. First I forked your repository 'INF502-Fall22' to mine.
+2. I went into the students folder in my forked repository and added my file 'PALAPARTHY_NAGA UMA DEVI.md'.
+3. Again on Git webpage, I edited the file to create basic structure, like writting tittle, journal name, pages etc.
+4. I went into my local machine and the did git clone - using command 
+    '$ git clone https://github.com/UmaDeviPalaparthy/INF502-Fall22.git'
+5. I open my file with my name in notepad++ and added rest of the content to it.
+6. After finishing edditing, I commited it into my local repository. using command '$git commit -a -m "Adding outcomes"'
+7. After commiting it, now I have to piush these changes into remote repository. For which I used command '$ git push origin main'.
+8. After checking if my changes are reflected in the webpage of git, I created pull request.
 
-
+Hurdles faced - when pushing my changes from local repository to remote repository, my machine asked me to sign into github locally.
+I was confused why it was asking and also I had issues with my web browser (microsoft edge) which didnt allow me to sign in straight 
+away. after I changed the browser to chome only then things started working and was able to push. Main task that took time here is 
+recognizing the browser issue.
 ```
 
 ### Part 2: Using GitHub
