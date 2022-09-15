@@ -115,11 +115,11 @@ $ git log --decorate
 
 Understanding :
 This command shows the activity performed in the repository from bottom to top (most recent activity is on top). for each commit 
-it shows the commit hash value, author, data of commit and comments given by developer during commit. HEAD -> points the current 
-branch we are working on, in this case its master branch. on the left on the commits, there is a green and red line between stars 
+it shows the commit hash value, author, date of commit and comments given by developer during commit. HEAD -> points the current 
+branch we are working on, in this case its master branch. To the left of the commits, there is a green and red line between stars 
 - representing till when the branches are in sync. The dash that come out on right indicates when the branch is created and if 
 there is dash back into the main straight line then it indicates the branch is merged. red dashes indicate that there is 
-different content in both the files, where as geen line represents that the branch is merged back into the master and all the 
+different content in both the branches, where as green line represents that the branch is merged back into the master and all the 
 branches are in sync. The same is in our case there is branch created after two commits and third commit is performed in branch 
 math whereas fourth commit is performed in master branch.
 ```
@@ -154,12 +154,11 @@ index e69de29..c63f94c 100644
 
 
 Summarization : 
-In the child branch A.py file, inside method there is some if else logic added in it, where as the master branch A.py file inside 
+In the child branch A.py file, inside method there is some if else logics added in it, where as the master branch A.py file inside 
 the method there is only one print statement - printing - 'my knowledge is limited'. whereas in B.py file in the child branch 
 there is no comment added but in the master branch's B.py file there is a comment added. I am checking the difference from master 
-branch so '--- a/A.py' mean that there is some content less in master branch when compared to child branch, '+++ b/B.py' means 
-that there is content in master branch's B.py which is not there in child branch's B.py. 
-
+branch so '--- a/A.py' mean that there is some content less in this file in master branch when compared to child branch, '+++ b/B.py' 
+means that there is content in this file in master branch's B.py which is not there in child branch's B.py. 
 ```
 
 4. Write a command sequence to merge the non-master branch into `master`.
@@ -218,7 +217,7 @@ $ git merge --abort
    
 11. Now repeat item 9, but proceed with the manual merge (editing B.py). All implemented methods are needed. Explain your procedure.
 ```
-Since its aborted earlier I merged again so that conflicts will show up.
+Since its aborted earlier I merged again so that conflicts will show up using the command -$ git merge math
 After the conflicts showed up, I decided which file's content to keep in file. I decided to keep both the files content. 
 So I removed (<<<<<<< HEAD, =======, >>>>>>> math) and followed the following steps.
 
@@ -257,17 +256,17 @@ Report your experience of submitting the Part 2. Please, include the steps you f
 1. First I forked your repository 'INF502-Fall22' to mine.
 2. I went into the students folder in my forked repository and added my file 'PALAPARTHY_NAGA UMA DEVI.md'.
 3. Again on Git webpage, I edited the file to create basic structure, like writting tittle, journal name, pages etc.
-4. I went into my local machine and the did git clone - using command 
+4. Then, I went into my local machine and the did git clone - using command 
     '$ git clone https://github.com/UmaDeviPalaparthy/INF502-Fall22.git'
 5. I open my file with my name in notepad++ and added rest of the content to it.
 6. After finishing edditing, I commited it into my local repository. using command '$git commit -a -m "Adding outcomes"'
-7. After commiting it, now I have to piush these changes into remote repository. For which I used command '$ git push origin main'.
+7. After commiting it, now I have to push these changes into remote repository. For which I used command '$ git push origin main'.
 8. After checking if my changes are reflected in the webpage of git, I created pull request.
 
 Hurdles faced - when pushing my changes from local repository to remote repository, my machine asked me to sign into github locally.
-I was confused why it was asking and also I had issues with my web browser (microsoft edge) which didnt allow me to sign in straight 
-away. after I changed the browser to chome only then things started working and was able to push. Main task that took time here is 
-recognizing the browser issue.
+I was confused why it was asking and also I had issues with my web browser (microsoft edge) which didnt allow me to sign straight 
+away. after I changed the browser to chome only then things started working and was able to push. Main task that, it took time to 
+recognize the browser issue.
 ```
 
 ### Part 2: Using GitHub
