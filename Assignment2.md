@@ -22,25 +22,52 @@ For example:
 print(pythagoreanTheorem(2, 2))
 2.8284271247461903
 ```
-```
+```python
+# importing math library
 import math
 
 
+# Method to calculate hypotenuse, length_a, length_b are the other two sides of the triangle
+# returns hypotenuse
 def pythagoreanTheorem(length_a, length_b):
     length_c = math.sqrt(length_a ** 2 + length_b ** 2)
     return length_c
 
 
+# main method to read user input for the two sides of the triangle.
 def main():
     length_a = int(input("Enter the length of one side - a : "))
     length_b = int(input("Enter the length of another side - b : "))
+    # length_c representing the hypotenuse
     length_c = pythagoreanTheorem(length_a, length_b)
     print("Hypotenuse is : ", length_c)
 
 
+# invocation of main method.
 main()
 
 
+```
+```
+Output 1:
+Enter the length of one side - a : 4
+Enter the length of another side - b : 4
+Hypotenuse is :  5.656854249492381
+
+Output 2:
+Enter the length of one side - a : 10
+Enter the length of another side - b : 10
+Hypotenuse is :  14.142135623730951
+
+Output 3:
+Enter the length of one side - a : 2
+Enter the length of another side - b : 2
+Hypotenuse is :  2.8284271247461903
+
+Output 4:
+Enter the length of one side - a : 3
+Enter the length of another side - b : 3
+Hypotenuse is :  4.242640687119285
 ```
 In your solution markdown, please provide: a link to the .py file, a commented code, the output of a few examples (3-4).
 
@@ -54,26 +81,51 @@ For example:
 print(list_mangler([1, 2, 3, 4]))
 [3, 4, 9, 8]
 ```
-```
+```python
+# Custom method to  calculate and return list
 def list_mangler(list_in):
+    # new_list_in list variable to hold new values of the list
     new_list_in = list()
     for i in list_in:
         if i % 2 == 0:
+            # if even - double the value in the list
             new_list_in.append(i ** 2)
         else:
+            # if odd - triple the value in the list
             new_list_in.append(i ** 3)
     return new_list_in
 
 
+# main method definition.
+# input List values are hardcoded in this method
 def main():
     list_in =[1,2,3,4,5]
     new_list_in = list_mangler(list_in)
     print(new_list_in)
 
 
+# main method invocation
 main()
+```
+```
+input = [1,2,3,4,5]
+output 1:
+[1, 4, 27, 16, 125]
+
+input = [6,7,8,9,10]
+output 2:
+[36, 343, 64, 729, 100]
+
+input = [11,12,13,14,15]
+output 3:
+[1331, 144, 2197, 196, 3375]
+
+input = [16,17,18,19,20]
+output 4:
+[256, 4913, 324, 6859, 400]
 
 ```
+
 In your solution markdown, please provide: a link to the .py file, a commented code, the output of a few examples (3-4).
 
 **3. Write a function with the following signature:** `grade_calc(grades_in, to_drop)`.
@@ -86,18 +138,27 @@ For example:
 print(grade_calc([100, 90, 80, 95], 2)) # drops the 2 lowest grades (80 and 90)
 'A'
 ```
-```
+```python
+# Custom method to drop lowest two grades and calculate letter grade
 def grade_calc(grades_in, to_drop):
+    # For loop to iterate from 0 to to_drop value
     for x in range(to_drop):
+        # variable to get the last lowest grade in the list
+        # worst case scenario assigning the highest grade or a grade outside the scope
         low_grade = 10000
         for grade in grades_in:
             if grade < low_grade:
+                # low_grade has the lowest grade in the list
                 low_grade = grade
+        # line to remove the lowest grade in the list
         grades_in.remove(low_grade)
-#        print(grades_in)
+    # print(grades_in)
+    # avg variable to hold average of values from the list
     avg = 0
+    # calculate average
     for grade in grades_in:
         avg += grade
+    # if conditions to return the letter grade
     if avg >= 90:
         return 'A'
     elif avg >= 80:
@@ -110,13 +171,33 @@ def grade_calc(grades_in, to_drop):
         return 'F'
 
 
+# main method to invoke the grade_calc method
+# grade list and number of grades to drop are hardcoded
+# prints the letter grade
 def main():
     grades_in = [100, 90, 80, 95]
     to_drop = 2
-    print(grade_calc([100, 90, 80, 95], 2))
+    print(grade_calc(grades_in, to_drop))
 
 
+# invocation of main method
 main()
+
+```
+```
+input:
+grades_in = [100, 90, 80, 95]
+to_drop = 2
+output 1: A
+
+input:
+grades_in = [90, 80, 95, 85]
+to_drop = 2
+output 2: A
+
+
+output 3:
+output 4:
 
 ```
 In your solution markdown, please provide: a link to the .py file, a commented code, the output of a few examples (3-4).
