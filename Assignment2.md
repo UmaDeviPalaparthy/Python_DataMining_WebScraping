@@ -262,21 +262,25 @@ print(odd_even_filter([71, 39, 98, 79, 5, 89, 50, 90, 2, 56]))
 [[98, 50, 90, 2, 56], [71, 39, 79, 5, 89]]
 ```
 ```python
+# custom method to filter the list into two
 def odd_even_filter(numbers):
+    # empty list to hold even values 
     list_even = list()
+    # empty list to hold odd values 
     list_odd = list()
+    # empty list to hold both even and odd values 
     list_full = list()
-    # print(numbers)
+    # for loop to iterate over the values in list - numbers
     for x in numbers:
+        # if the value is even append to even list else append to odd list
         if x % 2 == 0:
             list_even.append(x)
         else:
             list_odd.append(x)
-    # print(list_even)
-    # print(list_odd)
+    # append both even and odd list
     list_full.append(list_even)
     list_full.append(list_odd)
-    # print(list_full)
+    # return full list with both the values separated
     return list_full
 
 
