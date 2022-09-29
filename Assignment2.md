@@ -71,6 +71,8 @@ Hypotenuse is :  4.242640687119285
 ```
 In your solution markdown, please provide: a link to the .py file, a commented code, the output of a few examples (3-4).
 
+code for [Pythagorean.py](code/Pythagorean.py)
+
 **2. Write a function with the following signature:** `list_mangler(list_in)`.
 
 The function assumes that `list_in` is a list of integers, and returns a new list containing transformed elements of `list_in`. If the element is even, it's doubled. If the element is odd, it's tripled.
@@ -142,6 +144,8 @@ Enter the list values as space separated values
 ```
 
 In your solution markdown, please provide: a link to the .py file, a commented code, the output of a few examples (3-4).
+
+code for [Listmangler.py](code/Listmangler.py)
 
 **3. Write a function with the following signature:** `grade_calc(grades_in, to_drop)`.
 
@@ -242,6 +246,7 @@ D
 ```
 In your solution markdown, please provide: a link to the .py file, a commented code, the output of a few examples (3-4).
 
+code for [GradeCalc.py](code/GradeCalc.py)
 
 **4. Write a function with the following signature:** `odd_even_filter(numbers)`.
 
@@ -315,3 +320,5 @@ Enter the list values as space separated values
 [[12, 26, 20, 40], [413, 345, 35, 15]]
 ```
 In your solution markdown, please provide: a link to the .py file, a commented code, the output of a few examples (3-4).
+
+code for [OddEvenFilter.py](code/OddEvenFilter.py)
