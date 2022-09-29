@@ -91,10 +91,10 @@ def list_mangler(list_in):
     for i in list_in:
         if i % 2 == 0:
             # if even - double the value in the list
-            new_list_in.append(i ** 2)
+            new_list_in.append(i * 2)
         else:
             # if odd - triple the value in the list
-            new_list_in.append(i ** 3)
+            new_list_in.append(i * 3)
     return new_list_in
 
 
@@ -124,22 +124,22 @@ main()
 output 1:
 Enter the list values as space separated values
 1 2 3 4 5
-[1, 4, 27, 16, 125]
+[3, 4, 9, 8, 15]
 
 output 2:
 Enter the list values as space separated values
 6 7 8 9 10
-[36, 343, 64, 729, 100]
+[12, 21, 16, 27, 20]
 
 output 3:
 Enter the list values as space separated values
 11 12 13 14 15
-[1331, 144, 2197, 196, 3375]
+[33, 24, 39, 28, 45]
 
 output 4:
 Enter the list values as space separated values
 16 17 18 19 20
-[256, 4913, 324, 6859, 400]
+[32, 51, 36, 57, 40]
 
 ```
 
