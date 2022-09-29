@@ -5,10 +5,10 @@ def list_mangler(list_in):
     for i in list_in:
         if i % 2 == 0:
             # if even - double the value in the list
-            new_list_in.append(i ** 2)
+            new_list_in.append(i * 2)
         else:
             # if odd - triple the value in the list
-            new_list_in.append(i ** 3)
+            new_list_in.append(i * 3)
     return new_list_in
 
 
