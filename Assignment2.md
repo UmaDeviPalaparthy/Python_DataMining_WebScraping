@@ -99,7 +99,17 @@ def list_mangler(list_in):
 # main method definition.
 # input List values are hardcoded in this method
 def main():
-    list_in =[1,2,3,4,5]
+    print("Enter the list values as space separated values")
+    # read input from user as space separated values
+    list_str = input()
+    # split the input by space
+    list1 = list_str.split(" ")
+    # empty list to hold the values
+    list_in = list()
+    # for loop to convert the string values in list to int values
+    for i in list1:
+        list_in.append(int(i))
+    # list_in =[1,2,3,4,5]
     new_list_in = list_mangler(list_in)
     print(new_list_in)
 
@@ -108,20 +118,25 @@ def main():
 main()
 ```
 ```
-input = [1,2,3,4,5]
+
 output 1:
+Enter the list values as space separated values
+1 2 3 4 5
 [1, 4, 27, 16, 125]
 
-input = [6,7,8,9,10]
 output 2:
+Enter the list values as space separated values
+6 7 8 9 10
 [36, 343, 64, 729, 100]
 
-input = [11,12,13,14,15]
 output 3:
+Enter the list values as space separated values
+11 12 13 14 15
 [1331, 144, 2197, 196, 3375]
 
-input = [16,17,18,19,20]
 output 4:
+Enter the list values as space separated values
+16 17 18 19 20
 [256, 4913, 324, 6859, 400]
 
 ```
@@ -158,16 +173,19 @@ def grade_calc(grades_in, to_drop):
     # calculate average
     for grade in grades_in:
         avg += grade
+
+    avg = avg/len(grades_in)
+    # print(avg)
     # if conditions to return the letter grade
-    if avg >= 90:
+    if avg >= 90.0:
         return 'A'
-    elif avg >= 80:
+    elif avg >= 80.0:
         return 'B'
-    elif avg >= 70:
+    elif avg >= 70.0:
         return 'C'
-    elif avg >= 60:
+    elif avg >= 60.0:
         return 'D'
-    elif avg >= 50:
+    elif avg < 60.0:
         return 'F'
 
 
@@ -175,8 +193,19 @@ def grade_calc(grades_in, to_drop):
 # grade list and number of grades to drop are hardcoded
 # prints the letter grade
 def main():
-    grades_in = [100, 90, 80, 95]
-    to_drop = 2
+    print("Enter the list values as space separated values")
+    # read input from user as space separated values
+    list_str = input()
+    # split the input by space
+    list1 = list_str.split(" ")
+    # empty list to hold the values
+    grades_in = list()
+    # for loop to convert the string values in list to int values
+    for i in list1:
+        grades_in.append(int(i))
+    # grades_in = [80, 60, 70, 75]
+    to_drop = int(input("Enter number of grades to be dropped: "))
+    # to_drop = 2
     print(grade_calc(grades_in, to_drop))
 
 
@@ -185,19 +214,30 @@ main()
 
 ```
 ```
-input:
-grades_in = [100, 90, 80, 95]
-to_drop = 2
-output 1: A
+output 1: 
+Enter the list values as space separated values
+100 90 95 80
+Enter number of grades to be dropped: 2
+A
 
-input:
-grades_in = [90, 80, 95, 85]
-to_drop = 2
-output 2: A
+output 2: 
+Enter the list values as space separated values
+90 80 85 75
+Enter number of grades to be dropped: 2
+B
 
 
 output 3:
+Enter the list values as space separated values
+80 75 70 65
+Enter number of grades to be dropped: 2
+C
+
 output 4:
+Enter the list values as space separated values
+70 65 60 50
+Enter number of grades to be dropped: 2
+D
 
 ```
 In your solution markdown, please provide: a link to the .py file, a commented code, the output of a few examples (3-4).
@@ -215,5 +255,63 @@ print(odd_even_filter([3, 9, 43, 7]))
 [[], [3, 9, 43, 7]]
 print(odd_even_filter([71, 39, 98, 79, 5, 89, 50, 90, 2, 56]))
 [[98, 50, 90, 2, 56], [71, 39, 79, 5, 89]]
+```
+```python
+def odd_even_filter(numbers):
+    list_even = list()
+    list_odd = list()
+    list_full = list()
+    # print(numbers)
+    for x in numbers:
+        if x % 2 == 0:
+            list_even.append(x)
+        else:
+            list_odd.append(x)
+    # print(list_even)
+    # print(list_odd)
+    list_full.append(list_even)
+    list_full.append(list_odd)
+    # print(list_full)
+    return list_full
+
+
+def main():
+    print("Enter the list values as space separated values")
+    # read input from user as space separated values
+    list_str = input()
+    # split the input by space
+    list1 = list_str.split(" ")
+    # empty list to hold the values
+    odd_even_list = list()
+    # for loop to convert the string values in list to int values
+    for i in list1:
+        odd_even_list.append(int(i))
+    # print(odd_even_filter([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+    print(odd_even_filter(odd_even_list))
+
+
+main()
+
+```
+```
+output 1:
+Enter the list values as space separated values
+1 2 3 4 5 6 7 8 9
+[[2, 4, 6, 8], [1, 3, 5, 7, 9]]
+
+output 2:
+Enter the list values as space separated values
+11 12 13 14 15 16 17 18
+[[12, 14, 16, 18], [11, 13, 15, 17]]
+
+output 3:
+Enter the list values as space separated values
+21 13 34 35 87 98
+[[34, 98], [21, 13, 35, 87]]
+
+output 4:
+Enter the list values as space separated values
+413 345 12 35 15 26 20 40
+[[12, 26, 20, 40], [413, 345, 35, 15]]
 ```
 In your solution markdown, please provide: a link to the .py file, a commented code, the output of a few examples (3-4).
