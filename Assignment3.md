@@ -125,6 +125,7 @@ To populate your dictionary with data, provide a menu of options to the users:
 Make sure you do the appropriate communication with the user to get the necessary information to complete each step.
 
 (Code link)[https://github.com/UmaDeviPalaparthy/INF502/blob/main/code/periodictable.py]
+
 (json file link for option 5)[https://github.com/UmaDeviPalaparthy/INF502/blob/main/code/periodic_table.json]
 ```python
 # method to search the dictionary and get all the names
