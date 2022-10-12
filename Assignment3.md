@@ -56,7 +56,7 @@ def wallets(input_list):
     print("The fattest wallet has " + str(fattest) + " in it.")
     print("The skinniest wallet has " + str(skinniest) + " in it.")
     print("All together, these wallets have " + str(total) + " in them.")
-    print("All together, the total value of these wallets is worth " + str(total/10) + " dimes.")
+    print("All together, the total value of these wallets is worth " + str(total * 10) + " dimes.")
 
 
 # method to convert the input string to list of integers
@@ -87,15 +87,19 @@ main()
 
 ```
 output 1:
-      Enter the values in different wallets, Enter space separated values : 
+        Enter the values in different wallets, Enter space separated values : 
         10 20 30 40 50
         The fattest wallet has 50 in it.
         The skinniest wallet has 10 in it.
         All together, these wallets have 150 in them.
-        All together, the total value of these wallets is worth 15.0 dimes.
+        All together, the total value of these wallets is worth 1500 dimes.
 output 2:
-output 3:
-output 4:
+        Enter the values in different wallets, Enter space separated values : 
+        90 20 10 80 40 30 40
+        The fattest wallet has 90 in it.
+        The skinniest wallet has 10 in it.
+        All together, these wallets have 310 in them.
+        All together, the total value of these wallets is worth 3100 dimes.
 
 ```
 ## Problem 2: Periodic Table 
@@ -120,90 +124,103 @@ To populate your dictionary with data, provide a menu of options to the users:
 Make sure you do the appropriate communication with the user to get the necessary information to complete each step.
 
 ```python
-def search_element_property_name(dict, name):
-    list_elements = list()
-    for x, y in dict.items():
-        if y[0] == name:
-            list_elements.append(x + ": " + str(y))
-    return list_elements
+# method to search the dictionary and get all the names
+# input json_dict has nested dictionary with details
+def search_element_property_name(json_dict):
+    # for loop to get all the parent level keys
+    for key in json_dict.keys():
+        # prints the names in the nested dictionary
+        print(json_dict[key]["name"])
 
 
-def search_element_property_number(dict, number):
-    list_elements = list()
-    for x, y in dict.items():
-        if y[1] == number:
-            list_elements.append(x)
-    return list_elements
+# method to search the dictionary and get all the numbers
+# input json_dict has nested dictionary with details
+def search_element_property_number(json_dict):
+    # for loop to get all the parent level keys
+    for key in json_dict.keys():
+        # prints the numbers in the nested dictionary
+        print(json_dict[key]["number"])
 
 
-def search_element_property_row(dict, row):
-    list_elements = list()
-    for x, y in dict.items():
-        if y[2] == row:
-            list_elements.append(x)
-    return list_elements
+# method to search the dictionary and get all the rows
+# input json_dict has nested dictionary with details
+def search_element_property_row(json_dict):
+    # for loop to get all the parent level keys
+    for key in json_dict.keys():
+        # prints the row in the nested dictionary
+        print(json_dict[key]["row"])
 
 
-def search_element_property_column(dict, column):
-    list_elements = list()
-    for x, y in dict.items():
-        if y[3] == column:
-            list_elements.append(x)
-    return list_elements
+# method to search the dictionary and get all the columns
+# input json_dict has nested dictionary with details
+def search_element_property_column(json_dict):
+    # for loop to get all the parent level keys
+    for key in json_dict.keys():
+        # prints the column in the nested dictionary
+        print(json_dict[key]["column"])
 
 
-def search_element_symbol(dict, symbol):
-    return dict.get(symbol, -1)
+# method to search the dictionary (json_dict) using symbol which is at parent key level
+def search_element_symbol(json_dict, symbol):
+    # if present returns the value, if not present returns -1
+    return json_dict.get(symbol, -1)
 
 
-def add_element(dict, symbol, name, number, row, column):
-    dict[symbol] = [name, int(number), int(row), int(column)]
+# method to ass elements into dictionary, it adds nested dictionary as well
+# json_dict is the dictionary
+def add_element(json_dict, symbol, name, number, row, column):
+    # sub_json variable holds the nested dictionary in json format.
+    sub_json = {"name": name, "number": number, "row": row, "column": column}
+    # assigning nested json to the parent dictionary
+    json_dict[symbol] = sub_json
 
 
-# 4th option to change the name of the element by symbol
-def name_change(dict, symbol, name):
-    dict[symbol][0] = name
+# 4th option, method to change the name of the element by symbol
+def name_change(json_dict, symbol, name):
+    # symbol is the key for which the property name is being edited
+    json_dict[symbol]["name"] = name
 
 
-# 4th option to change the number of the element by symbol
-def number_change(dict, symbol, number):
-    dict[symbol][1] = int(number)
+# 4th option, method  to change the number of the element by symbol
+def number_change(json_dict, symbol, number):
+    # symbol is the key for which the property number is being edited
+    json_dict[symbol]["number"] = int(number)
 
 
-# 4th option to change the row of the element by symbol
-def row_change(dict, symbol, row):
-    dict[symbol][2] = int(row)
+# 4th option, method  to change the row of the element by symbol
+def row_change(json_dict, symbol, row):
+    # symbol is the key for which the property row is being edited
+    json_dict[symbol]["row"] = int(row)
 
 
-# 4th option to change the column of the element by symbol
-def column_change(dict, symbol, column):
-    dict[symbol][3] = int(column)
+# 4th option, method  to change the column of the element by symbol
+def column_change(json_dict, symbol, column):
+    # symbol is the key for which the property column is being edited
+    json_dict[symbol]["column"] = int(column)
 
 
-def export_JSON_file(dict):
-    file_handler = open('periodic_table.txt', 'w')
-    file_handler.write('{')
-    file_handler.write('\n')
-    for x, y in dict.items():
-        file_handler.write('\t')
-        file_handler.write(str(x))
-        file_handler.write(': ')
-        file_handler.write(str(y))
-        file_handler.write('\n')
-    file_handler.write('}')
+# 5th option, to export the existing dictionary object into a json file in json format.
+def export_json_file(json_dict):
+    # opening the file "periodic_table.json" in write mode, file path is in same location as the current file
+    file_handler = open('periodic_table.json', 'w')
+    # write the dictionary object to file, converting it to string as we can write data in string formats.
+    file_handler.write(str(json_dict))
+    # closing the opened file.
     file_handler.close()
 
 
-def load_JSON_file():
-    file_handler = open('periodic_table.txt', 'r')
-    dict = file_handler.read()
-    # for x, y in dict(input_str).items():
-    #   print(x)
-    #  print(y)
-    print(dict)
-    return dict
+# 6th option, method to load the json in file into dictionary
+def load_json_file():
+    # opening the file "periodic_table.json" in read mode, file path is in same location as the current file
+    file_handler = open('periodic_table.json', 'r')
+    # read all the lines from the file at once as a string.
+    json_string = file_handler.read()
+    # converting the read json string into dictionary object.
+    json_dictionary = eval(json_string)
+    print(json_dictionary)
 
 
+# Method to print the main menu to the user.
 def menu_user_input():
     print("1. Search the element by symbol (see all the details).")
     print("2. Search by a property (name, number, row, column) and see "
@@ -215,68 +232,153 @@ def menu_user_input():
     print("7. Exit the program")
 
 
+# main method to indicate the start of the flow
 def main():
+    # first printing menu to let the users read and choose from options.
     menu_user_input()
+    # reading user input on menu number selected
     option = int(input("Enter the operation of you choice from menu : "))
-    dict = {"iron": ["iron", 123, 12, 12]}
+    # sample Json with hardcoded data initialized, contains 2 elements with their properties in nested json
+    json_dict = {'iron': {'name': 'iron', 'number': 123, 'row': 12, 'column': 12},
+                 'nickel': {'name': 'nickel', 'number': 231, 'row': 121, 'column': 12}}
+
+    # if user input a menu other than given, ask the user to enter an appropriate number
     if 1 > option > 7:
         print("Enter a valid option with in 1 - 7")
         option = int(input("Enter the operation of you choice from menu : "))
-    while option != 7:
-        if option == 1:
-            print(search_element_symbol(dict, input("Enter symbol to search : ")))
 
+    # iterating on the entire menu and respective operations until user inputs 7 to exit
+    while option != 7:
+        # option 1 to search the element by symbol
+        if option == 1:
+            print(search_element_symbol(json_dict, input("Enter symbol to search : ")))
+
+        # option 2 to search the element by its properties name / number / row / column
         elif option == 2:
+            # choice - holds the input on what property to be searched
             choice = input("Enter if you want to search by name / number / row "
                            "/ column of the element you want to search: ")
+            # if user wants to search by name
             if choice == 'name':
-                name = input("Enter name : ")
-                print(search_element_property_name(dict, name))
+                search_element_property_name(json_dict)
+
+            # if user wants to search by number
             elif choice == 'number':
-                number = int(input("Enter number : "))
-                print(search_element_property_number(dict, number))
+                search_element_property_number(json_dict)
+
+            # if user wants to search by row
             elif choice == 'row':
-                row = int(input("Enter row : "))
-                print(search_element_property_row(dict, row))
+                search_element_property_row(json_dict)
+
+            # if user wants to search by column
             elif choice == 'column':
-                column = int(input("Enter column : "))
-                print(search_element_property_column(dict, column))
-        # print(search_element_property_name(input("Enter name or number or row "
-        #                                         "or column of the element you want to search: ")))
+                search_element_property_column(json_dict)
+        # option 3 to insert a new element to the dictionary, asks user input for all the properties and symbol
         elif option == 3:
             symbol = input("Enter symbol : ")
             name = input("Enter name : ")
             number = input("Enter number : ")
             row = input("Enter row : ")
             column = input("Enter column : ")
-            add_element(dict, symbol, name, number, row, column)
+            # method invocation to add the new element
+            add_element(json_dict, symbol, name, number, row, column)
 
+        # option 4, update the property of the element by using any of the property
         elif option == 4:
+            # asks user input on symbol for which user want to update the property
             symbol = input("Enter the symbol for which you want to update the properties: ")
+            # asks the user to provide the property that he wants to update
             choice = input("Enter the property you want to modify (name, number, row, column) : ")
+
+            # update name of the symbol
             if choice == 'name':
                 name = input("Enter name : ")
-                name_change(dict, symbol, name)
+                name_change(json_dict, symbol, name)
+            # update number of the symbol
             elif choice == 'number':
                 number = input("Enter number : ")
-                number_change(dict, symbol, number)
+                number_change(json_dict, symbol, number)
+            # update row of the symbol
             elif choice == 'row':
                 row = input("Enter row : ")
-                row_change(dict, symbol, row)
+                row_change(json_dict, symbol, row)
+            # update column of the symbol
             elif choice == 'column':
                 column = input("Enter column : ")
-                column_change(dict, symbol, column)
+                column_change(json_dict, symbol, column)
 
+        # option 5, write the dictionary to file in json format
         elif option == 5:
-            export_JSON_file(dict)
+            export_json_file(json_dict)
+        # option 6, read the json from a file into dictionary.
         elif option == 6:
-            load_JSON_file()
+            load_json_file()
+        # repeat to ask the user to provide option form the main menu
         option = int(input("Enter the operation of you choice from main menu : "))
 
 
+# Main method invocation.
 main()
+```
+```
+output for all options:
+  1. Search the element by symbol (see all the details).
+  2. Search by a property (name, number, row, column) and see the values for that property for all the elements in the table.
+  3. Enter a new element manually (type the information for each property)
+  4. Change the properties of an element (by symbol)
+  5. Export periodic table as a JSON file
+  6. Load periodic table from JSON file
+  7. Exit the program
+  Enter the operation of you choice from menu : 1
+  Enter symbol to search :  iron
+  {'name': 'iron', 'number': 123, 'row': 12, 'column': 12}
+  
+  Enter the operation of you choice from main menu :  2
+  Enter if you want to search by name / number / row / column of the element you want to search:  name
+  iron
+  nickel
+  Enter the operation of you choice from main menu :  2
+  Enter if you want to search by name / number / row / column of the element you want to search:  number
+  123
+  231
+  Enter the operation of you choice from main menu :  2
+  Enter if you want to search by name / number / row / column of the element you want to search:  row
+  12
+  121
+  Enter the operation of you choice from main menu :  2
+  Enter if you want to search by name / number / row / column of the element you want to search:  column
+  12
+  12
+  
+  Enter the operation of you choice from main menu :  3
+  Enter symbol :  mercury
+  Enter name :  mercury
+  Enter number :  78
+  Enter row :  90
+  Enter column :  9
+  
+  Enter the operation of you choice from main menu :  4
+  Enter the symbol for which you want to update the properties:  mercury
+  Enter the property you want to modify (name, number, row, column) :  name
+  Enter name :  mercu
+  Enter the operation of you choice from main menu :  4
+  Enter the symbol for which you want to update the properties:  number
+  Enter the property you want to modify (name, number, row, column) :  23
+  Enter the operation of you choice from main menu :  4
+  Enter the symbol for which you want to update the properties:  mercury
+  Enter the property you want to modify (name, number, row, column) :  row
+  Enter row :  9
+  Enter the operation of you choice from main menu :  4
+  Enter the symbol for which you want to update the properties:  mercury
+  Enter the property you want to modify (name, number, row, column) :  column
+  Enter column :  4
 
+  Enter the operation of you choice from menu :  5
+
+  Enter the operation of you choice from main menu :  6
+  {'iron': {'name': 'iron', 'number': 123, 'row': 12, 'column': 12}, 'nickel': {'name': 'nickel', 'number': 231, 'row': 121, 'column': 12}}
+  
+  Enter the operation of you choice from main menu :  7
+  Process finished with exit code 0
 ```
-```
-output 1:
-```
+
