@@ -366,8 +366,9 @@ output for all options:
   Enter the property you want to modify (name, number, row, column) :  name
   Enter name :  mercu
   Enter the operation of you choice from main menu :  4
-  Enter the symbol for which you want to update the properties:  number
-  Enter the property you want to modify (name, number, row, column) :  23
+  Enter the symbol for which you want to update the properties:  mercury
+  Enter the property you want to modify (name, number, row, column) :  number
+  Enter number :  23
   Enter the operation of you choice from main menu :  4
   Enter the symbol for which you want to update the properties:  mercury
   Enter the property you want to modify (name, number, row, column) :  row
@@ -380,7 +381,9 @@ output for all options:
   Enter the operation of you choice from menu :  5
 
   Enter the operation of you choice from main menu :  6
-  {'iron': {'name': 'iron', 'number': 123, 'row': 12, 'column': 12}, 'nickel': {'name': 'nickel', 'number': 231, 'row': 121, 'column': 12}}
+  {'iron': {'name': 'iron', 'number': 123, 'row': 12, 'column': 12}, 'nickel': {'name': 'nickel', 'number': 231, 'row': 121, 'column': 12}, 'mercury': {'name': 'mercu', 'number': 23, 'row': 9, 'column': 4}}
+
+
   
   Enter the operation of you choice from main menu :  7
   Process finished with exit code 0
