@@ -29,6 +29,7 @@ After the user adds the values for the wallets, your application should provide 
 
 Please try to think about different functions to complete your work.
 
+(Code link)[https://github.com/UmaDeviPalaparthy/INF502/blob/main/code/wallets.py]
 ```python
 # Calculates total of a given input values
 def calculate_sum(input_list):
@@ -123,6 +124,8 @@ To populate your dictionary with data, provide a menu of options to the users:
 
 Make sure you do the appropriate communication with the user to get the necessary information to complete each step.
 
+(Code link)[https://github.com/UmaDeviPalaparthy/INF502/blob/main/code/periodictable.py]
+(json file link for option 5)[https://github.com/UmaDeviPalaparthy/INF502/blob/main/code/periodic_table.json]
 ```python
 # method to search the dictionary and get all the names
 # input json_dict has nested dictionary with details
