@@ -50,8 +50,11 @@
 
 
 **Execution of number of matches**
+
 input files :
+
 sequence1.txt : [https://github.com/UmaDeviPalaparthy/INF502/blob/main/code/sequence1.txt]
+
 sequence2.txt : [https://github.com/UmaDeviPalaparthy/INF502/blob/main/code/sequence2.txt]
 ```
 File contents: 
@@ -73,8 +76,11 @@ ACTGATCAC
 
 
 **Execution of maximum chain:**
+
 input files :
+
 sequence1.txt : [https://github.com/UmaDeviPalaparthy/INF502/blob/main/code/sequence1.txt]
+
 sequence2.txt : [https://github.com/UmaDeviPalaparthy/INF502/blob/main/code/sequence2.txt]
 ```
 File contents: 
