@@ -3,6 +3,7 @@ def make_string_shifts(sequence_1, sequence_2, shifts):
 
     # variable to store prev similarity count to compare with current count and decide the large score
     prev_similarity_count = 0
+    # variables used to store the sequences when the maximum best score is updated
     prev_seq_1 = sequence_1
     prev_seq_2 = sequence_2
     index = -1   # to hold the index at which maximum contiguous chain occurs
@@ -14,10 +15,10 @@ def make_string_shifts(sequence_1, sequence_2, shifts):
             spaces += " "
         seq_1 = spaces + sequence_1
         seq_2 = sequence_2 + spaces
-        #print(seq_1)
-        # default value 0, as the worst similarity can be is 0
 
+        # invoking method to do similarity check and find the best score.
         similarity = check_similarity(seq_1, seq_2)
+        # if previous best score is smaller than the current best score update the score and respective variables
         if similarity[0] > prev_similarity_count:
             # prev_similarity_count always has the largest value
             prev_similarity_count = similarity[0]
