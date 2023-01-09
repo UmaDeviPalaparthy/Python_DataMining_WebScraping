@@ -1,11 +1,5 @@
-# Git/GitHub Assignment
+# Git/GitHub
 
-* **INDIVIDUAL ASSIGNMENT**
-* **Due date**: Sept-13th 11:59PM
-* **Value**: 100 points counted towards Homework category.
-
-## Description
-This assignment is composed of two parts. 
 - [Part 1](#Part-1-Dealing-with-git) consists of executing a sequence of commands and giving explanations about the commands you have to run. For each question, please provide appropriate explanation and/or the details requested.
 
 - [Part 2](#Part-2-Using-GitHub) consists of creating a Markdown file on a fork of this course and creating a pull request towards this repo.
@@ -14,18 +8,7 @@ This assignment is composed of two parts.
 
 To conduct this, you will have to download [handson.zip](handson.zip) and unzip it in your local machine. **Note:** handson folder is a git repository.
 
-Then, follow these steps:
-
-**On GitHub:**
-1. Create a new repository under your GitHub account called *INF502*;
-2. Create a file called *"Assignment1.md"*;
-3. Copy the questions from this section and paste in your *"Assignment1.md"* file (tip: to copy the questions, click on *"Raw"* at the right-top of this file; this will show you the markdown source);
-4. For each empty grey box, please provide an answer to the questions below.
-5. Invite me to see your new repository. This will allow you to keep a private repository that only you and me will be able to see.
-
-Your submission is complete when you complete the *Assigment1.md* file with your answers and invite me to your repo.
-
-**On your local machine:** Using the command line, find and access the "handson/" directory (if you didn't download and unzip the file, go back to the beginning of Part 1's instructions). Then, answer the following questions (on your *Assigment1.md* file):
+**On your local machine:** Using the command line, find and access the "handson/" directory (if you didn't download and unzip the file, go back to the beginning of Part 1's instructions). 
 
 1. List all the branches in this repository and, for each branch, list the commits.
 
